@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+### HelloWorld app with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We are going to use React Router for the routing handling of our React application.
 
-## Available Scripts
+- Create new [React Router](https://v5.reactrouter.com/web/guides/quick-start) app
+    - Inside a console run: npx create-react-app valle-silicona-pathfinding-ui-router-dom
 
-In the project directory, you can run:
+- Run the development server
+    - cd valle-silicona-pathfinding-ui-router-dom
+    - npm start
 
-### `npm start`
+- Edit App.js with the REST api message
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```javascript
+import React, { useState, useEffect } from 'react';
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+export default function App() {
 
-### `npm test`
+  const [greeting, setGreeting] = useState({});
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  useEffect(() => {
+    fetch("http://localhost:8080/greeting")
+      .then(res => res.json())
+      .then(
+        (data) => {
+          setGreeting(data);
+        }
+      )
+  }, [])
 
-### `npm run build`
+  return (
+    <div className="container">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      <main>
+        <h1 className="title">
+          {greeting.content}
+        </h1>
+      </main>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      <style jsx>{`
+        .container {
+          min-height: 100vh;
+          padding: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        main {
+          padding: 5rem 0;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
 
-### `npm run eject`
+        .title {
+          margin: 0;
+          line-height: 1.15;
+          font-size: 4rem;
+        }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        .title,
+        .description {
+          text-align: center;
+        }
+      `}</style>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+      <style jsx global>{`
+        html,
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
+    </div>
+  )
+}
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
