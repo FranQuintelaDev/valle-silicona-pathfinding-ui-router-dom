@@ -1,14 +1,20 @@
-import './App.css';
 import React, { useState, useEffect } from 'react';
+import { useLoaderData } from "react-router-dom";
 
+export async function loader({ params }) {
+  return params.userId;
+}
 
-export default function App() {
+export default function User() {
 
+  const user = useLoaderData();
+  
   const [greeting, setGreeting] = useState({});
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    console.log('useEffect',user)
     fetch("http://localhost:8080/greeting")
       .then(res => res.json())
       .then(
@@ -32,13 +38,13 @@ export default function App() {
               error
             </h1>
             <p className="description">
-              {error.message}
+                {error.statusText || error.message}
             </p>
           </div>
 
         ) : (
           <h1 className="title">
-            {greeting.content}
+            {greeting.content} to {user}
           </h1>
         )}
       </main>
