@@ -1,4 +1,19 @@
-### HelloWorld app with React
+# Spring + React
+
+Spring + React application that computes and renders the best posible path for a grid like board.
+
+## V-DES-0.1
+### What's new?
+- Added routing functionality with URLs based on IDs.
+- Use of Styles with css files
+- Error and loading handling with fetch requests.
+
+## Routing 
+First of all we need to install react-router-dom to access its routing funcionalities.
+- Install react-router-dom
+    - Console: npm install react-router-dom --save
+
+## HelloWorld app with React
 
 We are going to use React Router for the routing handling of our React application.
 
