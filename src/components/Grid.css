@@ -1,0 +1,171 @@
+﻿.grid {
+  /* height: 80vh; */
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vh80 {
+  height: 80vh;
+}
+
+.grid>.row {
+  flex-grow: 1;
+  min-height: 10vh;
+  margin: 1vh 0vh;
+}
+
+.grid>.row>.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+body {
+  background-color: #ececec;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  height: 10vh;
+  width: 10vh;
+  -webkit-appearance: none;
+  box-shadow:
+    -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+    0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+  position: absolute;
+
+  border-radius: 50%;
+  border: 1vh solid #ececec;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* .item.barranco{
+  box-shadow: 
+  -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12),
+  inset -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  inset 0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+} */
+.item.barranco::after {
+  font-family: FontAwesome;
+  content: "\f00d";
+  font-size: 3.5vh;
+  color: #EB5E28;
+}
+
+/* .item.obstaculo{
+  box-shadow: 
+  -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12),
+  inset -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  inset 0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+} */
+.item.obstaculo::after {
+  font-family: FontAwesome;
+  content: "\f068";
+  font-size: 3.5vh;
+  color: #CCC5B9;
+}
+
+.item.coche {
+  box-shadow:
+    -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+    0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12),
+    inset -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+    inset 0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+}
+
+.item.coche::after {
+  font-family: FontAwesome;
+  content: "\f1b9";
+  /* f1b9  */
+  font-size: 3.5vh;
+  color: #403D39;
+}
+
+.item.success::after {
+  
+  color: #64df62;
+}
+
+/* .item.rgb(84, 185, 89)
+  box-shadow: 
+  -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12),
+  inset -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+  inset 0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+} */
+.item.final::after {
+  font-family: FontAwesome;
+  content: "\f024";
+  /* f1b9  */
+  font-size: 3.5vh;
+  color: #403D39;
+}
+
+.actions {
+  position: absolute;
+  bottom: 5vh;
+}
+
+.pressed {
+  box-shadow:
+    -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+    0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12),
+    inset -0.5vh -0.5vh 0.75vh rgba(255, 255, 255, 0.5),
+    inset 0.5vh 0.5vh 0.75vh rgba(70, 70, 70, 0.12);
+}
+
+.item.play::after {
+  font-family: FontAwesome;
+  content: "\f04b";
+  /* f1b9  */
+  font-size: 3.5vh;
+  color: #403D39;
+}
+
+.item.refresh::after {
+  font-family: FontAwesome;
+  content: "\f021";
+  /* f1b9  */
+  font-size: 3.5vh;
+  color: #403D39;
+}
+
+
+.fadeOut {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: width 0.4s 0.4s, height 0.4s 0.4s, opacity 0.4s;
+}
+
+.fadeIn {
+  opacity: 1;
+  width: 12vh;
+  height: 12vh;
+  transition: width 0.4s, height 0.4s, opacity 0.4s 0.4s;
+}
+
+.alert-success {
+  position: fixed;
+  top: 2vh;
+  left: 40vw;
+  z-index: 1;
+}
+
+.alert-danger {
+  position: fixed;
+  top: 2vh;
+  left: 10vw;
+  z-index: 1;
+}
