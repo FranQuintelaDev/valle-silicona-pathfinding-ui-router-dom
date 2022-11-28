@@ -1,6 +1,6 @@
 {
-  "short_name": "netcore_react",
-  "name": "netcore_react",
+  "short_name": "pathfinding",
+  "name": "pathfinding",
   "icons": [
     {
       "src": "favicon.ico",

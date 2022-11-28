@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './Grid.css';
 import classNames from "classnames";
-import Alert from 'react-bootstrap/Alert';
 
 export function Grid() {
 
   const [grid, setGrid] = useState();
   const [pressed, setPressed] = useState(false);
   const [error, setError] = useState(false);
-  const [show, setShow] = useState(true);
 
-  const initialGrid = [["c", "b", "o"], ["", "o", ""], ["b", "o", ""], ["", "o", ""], ["b", "b", "o"], ["b", "b", "o"], ["b", "b", "o"]];
+  // const initialGrid = [["c", "b", "o"], ["", "o", ""], ["b", "o", ""], ["", "o", ""], ["b", "b", "o"], ["b", "b", "o"], ["b", "b", "o"]];
 
   useEffect(() => {
 
@@ -103,10 +100,10 @@ export function Grid() {
                           item: true,
                           fadeIn: col.includes('c') && !pressed,
                           fadeOut: col.includes('c') && pressed,
-                          obstaculo: col == 'o',
+                          obstaculo: col.includes('o'),
                           coche: col.includes('c'),
-                          barranco: col == 'b',
-                          final: col == 'f',
+                          barranco: col.includes('b'),
+                          final: col === 'f',
                           success: col.includes('fc'),
                         })}>
                           {/* {col.includes('fc') ? <><Alert key='success' variant='success' >Success!</Alert></>:<></>} */}
